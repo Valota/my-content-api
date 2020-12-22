@@ -8,7 +8,7 @@ __Payloads__
 Payload | Name and description | example values | details  
 ----|----|----|----  
 __archive__ `int`| __Archived messages__: List archived messages| `1` `0`  | `min: 0` `Default: 0`  
-__page__ `int`| __Page nro__: List archived messages| `0` `1` `2` `25`  | `min: 0` `Default: 0`  
+__page__ `int`| __Page nro__: Page number. Starts at 0.| `0` `1` `2` `25`  | `min: 0` `Default: 0`  
    
    
 > _Example endpoints_  
