@@ -16,8 +16,9 @@ Valotalive My Content API enables you to manage your My Content sources programm
 
 These libraries support all API endpoints. Save yourself some time and frustration and use them if possible. 
 
-- [TBA - Javascript Library]
-- [TBA - PHP Library]
+
+- [**PHP**] https://github.com/Valota/my-content-client-php
+- [**JS**] Will be published in the first quarter of 2021
 
 
 ## API Description
@@ -42,6 +43,7 @@ These libraries support all API endpoints. Save yourself some time and frustrati
   - [Post a message [post]](post.md)  
   - [List Messages [list]](list.md)  
   - [Get message [get]](get.md)  
+  - [Get basic information [information]](information.md)  
   - [Restore a message [restore]](restore.md)  
   - [Archive a message [archive]](archive.md)  
   - [Delete a message [delete]](delete.md)  

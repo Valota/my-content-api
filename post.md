@@ -40,7 +40,7 @@ __media__ `file`| __Media__: Medial file. Supports image, video and pdf. Recomme
 ```
    
 > _Example endpoint_  
-> https://my-api.valota.live/post  
+> https://my-api.valota.live/v1/post  
   
 ### Return value
 Returns message_id of the created message.  
@@ -65,6 +65,7 @@ Returns message_id of the created message.
   - [Post a message [post]](post.md)  
   - [List Messages [list]](list.md)  
   - [Get message [get]](get.md)  
+  - [Get basic information [information]](information.md)  
   - [Restore a message [restore]](restore.md)  
   - [Archive a message [archive]](archive.md)  
   - [Delete a message [delete]](delete.md)  

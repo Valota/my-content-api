@@ -1,5 +1,5 @@
 ## `POST /edit` Edit a message
-Edit a message. You cannot change media. Please send a new post if you want to use new media.  
+Edit a message. Only edits the fields that you supply. You cannot change media. Please send a new post if you want to use a new media.  
 ### Hash  
 >sha256("api_secret" + "message_id");
   
@@ -14,7 +14,6 @@ __duration_from__ `int`| __Duration from__: Show this post only from this timest
 __duration_to__ `int`| __Duration to__: Show this post only until this timestamp. Seconds from Epoch| `1606397180` `1613897380`  |  
 __display_time__ `int`| __Display time__: How long should this post be displayed. Seconds. Multi page PDF page settings override this. Set 0 to use default value.| `12` `8`  | `min: 0` `max: 30`  
 __pages__ `json`| __Page settings__: JSON encoded array for page settings if using multipage PDF. First page id of the message is always 0. |[See here](#pages-example)  |  
-__media__ `file`| __Media__: Medial file. Supports image, video and pdf. Recommended jpg, png, svg or avi, mp4, webm (h.264 or VP8 compressed) video. Other file formats might also work.|  |  
    
 #### pages example
  ```json
@@ -41,7 +40,7 @@ __media__ `file`| __Media__: Medial file. Supports image, video and pdf. Recomme
 ```
    
 > _Example endpoint_  
-> https://my-api.valota.live/edit  
+> https://my-api.valota.live/v1/edit  
   
 ### Return value
   
@@ -61,6 +60,7 @@ __media__ `file`| __Media__: Medial file. Supports image, video and pdf. Recomme
   - [Post a message [post]](post.md)  
   - [List Messages [list]](list.md)  
   - [Get message [get]](get.md)  
+  - [Get basic information [information]](information.md)  
   - [Restore a message [restore]](restore.md)  
   - [Archive a message [archive]](archive.md)  
   - [Delete a message [delete]](delete.md)  

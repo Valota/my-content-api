@@ -11,7 +11,7 @@ __message_id__ `required` `int`| __Message ID__: Identifier of the message| `182
    
    
 > _Example endpoint_  
-> https://my-api.valota.live/archive  
+> https://my-api.valota.live/v1/archive  
   
 ### Return value
   
@@ -36,6 +36,7 @@ __message_id__ `required` `int`| __Message ID__: Identifier of the message| `182
   - [Post a message [post]](post.md)  
   - [List Messages [list]](list.md)  
   - [Get message [get]](get.md)  
+  - [Get basic information [information]](information.md)  
   - [Restore a message [restore]](restore.md)  
   - [Archive a message [archive]](archive.md)  
   - [Delete a message [delete]](delete.md)  

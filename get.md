@@ -11,8 +11,8 @@ __message_id__ `required` `int`| __Message ID__: Identifier of the message| `182
    
    
 > _Example endpoints_  
-> https://my-api.valota.live/get/12  
-> https://my-api.valota.live/get/271  
+> https://my-api.valota.live/v1/get/12  
+> https://my-api.valota.live/v1/get/271  
   
 ### Return value
   
@@ -39,7 +39,7 @@ __message_id__ `required` `int`| __Message ID__: Identifier of the message| `182
     "name": "Jukka",
     "email": "email@address.com",
     "title": "Title",
-    "message": "Message<div><i>Italic<\/i><\/div><div><b>Bold<\/b><\/div><div><b><i>BoldItalic<\/i><\/b><\/div><div><u>Underline<\/u><\/div><div><strike>Strikehthrough<\/strike><\/div><div><ol><li>ordered List<\/li><li>2<\/li><\/ol><div><ul><li>unordered list<\/li><li>2<\/li><\/ul><div>Update<\/div><\/div><\/div>",
+    "message": "Message<div><i>Italic<\/i><\/div><div><b>Bold<\/b><\/div><div><b><i>BoldItalic<\/i><\/b><\/div><div><u>Underline<\/u><\/div><div><strike>Strikethrough<\/strike><\/div><div><ol><li>ordered List<\/li><li>2<\/li><\/ol><div><ul><li>unordered list<\/li><li>2<\/li><\/ul><div>Update<\/div><\/div><\/div>",
     "conf": [],
     "date": 1596096766,
     "media": null,
@@ -112,6 +112,7 @@ __message_id__ `required` `int`| __Message ID__: Identifier of the message| `182
   - [Post a message [post]](post.md)  
   - [List Messages [list]](list.md)  
   - [Get message [get]](get.md)  
+  - [Get basic information [information]](information.md)  
   - [Restore a message [restore]](restore.md)  
   - [Archive a message [archive]](archive.md)  
   - [Delete a message [delete]](delete.md)  
