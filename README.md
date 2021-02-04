@@ -18,7 +18,7 @@ These libraries support all API endpoints. Save yourself some time and frustrati
 
 
 - [**PHP**] https://github.com/Valota/my-content-client-php
-- [**JS**] Will be published in the first quarter of 2021
+- [**Javascript**] https://github.com/Valota/my-content-client-js
 
 
 ## API Description
