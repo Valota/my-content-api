@@ -10,10 +10,11 @@ Payload | Name and description | example values | details
 __message_id__ `required` `int`| __Message's id__: Message's identifier. You can this id when you create a post or from listing messages. | `172` `19273`  | `min: 1`  
 __title__ `string`| __Title__: Title for the post. Plain string. No html tags are allowed.| `Example title` `See a drone swarm replant a burnt forest`  | `maxLength: 512`  
 __message__ `string`| __Message__: Post's message. HTML tags &lt;b&gt;&lt;strong&gt;&lt;div&gt;&lt;i&gt;&lt;u&gt;&lt;strike&gt;&lt;s&gt;&lt;del&gt;&lt;ul&gt;&lt;ol&gt;&lt;li&gt;&lt;br&gt;&lt;em&gt;&lt;code&gt; are allowed.| `Centuries ago, a prestigious Islamic library brought Arabic numerals to the world. Though the library long since disappeared, its mathematical revolution changed our world.` `<strong>The Gatsby</strong> is one of <em>Cape Town</em>'s most famous sandwiches. But there’s more to the takeaway than simply being a solid hangover fix.`  |  
-__duration_from__ `int`| __Duration from__: Show this post only from this timestamp. Seconds from Epoch| `1606367122` `1611822480`  |  
-__duration_to__ `int`| __Duration to__: Show this post only until this timestamp. Seconds from Epoch| `1606397180` `1613897380`  |  
+__schedule__ `json`| __Schedule__: Show this post only acording to given schedules. Array of from and to objects with from and to being timestamps as seconds from epoch. | [See here](#schedule-example)|  
 __display_time__ `int`| __Display time__: How long should this post be displayed. Seconds. Multi page PDF page settings override this. Set 0 to use default value.| `12` `8`  | `min: 0` `max: 30`  
 __pages__ `json`| __Page settings__: JSON encoded array for page settings if using multipage PDF. First page id of the message is always 0. |[See here](#pages-example)  |  
+__~~duration_from~~__ `int`| __[Deprecated] ~~Duration from~~__: Show this post only from this timestamp. Seconds from Epoch| `1606367122` `1611822480`  |  
+__~~duration_to~~__ `int`| __[Deprecated] ~~Duration to~~__: Show this post only until this timestamp. Seconds from Epoch| `1606397180` `1613897380`  |  
    
 #### pages example
  ```json
@@ -36,6 +37,21 @@ __pages__ `json`| __Page settings__: JSON encoded array for page settings if usi
         "page_id": 18203,
         "display_time": 9
     }
+]
+```
+
+#### schedule example
+
+ ```json
+[
+  {
+    "from": 1735693261,
+    "to": 1735729871
+  },
+  {
+    "from": 2000000000,
+    "to": 2147483647
+  }  
 ]
 ```
    
