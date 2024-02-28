@@ -9,6 +9,7 @@ Valotalive My Content API enables you to manage your My Content sources programm
 ## Enabling API access
 1. Enable API Access in your My Content app (https://my.valota.live/): _Settings_ -> _API Access_. **API User Name** is used only as a sender for posts sent by your app.
 1. Get **api_key** and **api_secret** from _API Access_. 
+1. (optional) Setup automatic cleanup in _Settings_ -> _Automatic Cleanup_ to prevent cluttering of your My Content app
 
 
 

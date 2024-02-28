@@ -9,11 +9,12 @@ Payload | Name and description | example values | details
 ----|----|----|----  
 __title__ `string`| __Title__: Title for the post. Plain string. No html tags are allowed.| `Example title` `See a drone swarm replant a burnt forest`  | `maxLength: 512`  
 __message__ `string`| __Message__: Post's message. HTML tags &lt;b&gt;&lt;strong&gt;&lt;div&gt;&lt;i&gt;&lt;u&gt;&lt;strike&gt;&lt;s&gt;&lt;del&gt;&lt;ul&gt;&lt;ol&gt;&lt;li&gt;&lt;br&gt;&lt;em&gt;&lt;code&gt; are allowed.| `Centuries ago, a prestigious Islamic library brought Arabic numerals to the world. Though the library long since disappeared, its mathematical revolution changed our world.` `<strong>The Gatsby</strong> is one of <em>Cape Town</em>'s most famous sandwiches. But there’s more to the takeaway than simply being a solid hangover fix.`  |  
-__duration_from__ `int`| __Duration from__: Show this post only from this timestamp. Seconds from Epoch| `1606367122` `1611822480`  |  
-__duration_to__ `int`| __Duration to__: Show this post only until this timestamp. Seconds from Epoch| `1606397180` `1613897380`  |  
+__schedule__ `json`| __Schedule__: Show this post only acording to given schedules. Array of from and to objects with from and to being timestamps as seconds from epoch. | [See here](#schedule-example)|  
 __display_time__ `int`| __Display time__: How long should this post be displayed. Seconds.| `12` `8`  | `min: 4` `max: 30`  
 __pages__ `json`| __Page settings__: JSON encoded array for page settings if using multi page PDF. First page number is 1. You can only modify visibility and display time for pages. By default all of the pages are visible and have the default display time.|[See here](#pages-example)  |  
 __media__ `file`| __Media__: Medial file. Supports image, video and pdf. Recommended jpg, png, svg or avi, mp4, webm (h.264 or VP8 compressed) video. Other file formats might also work.|  |  
+__~~duration_from~~__ `int`| __[Deprecated] ~~Duration from~~__: Show this post only from this timestamp. Seconds from Epoch| `1606367122` `1611822480`  |  
+__~~duration_to~~__ `int`| __[Deprecated] ~~Duration to~~__: Show this post only until this timestamp. Seconds from Epoch| `1606397180` `1613897380`  |  
    
 #### pages example
  ```json
@@ -36,6 +37,21 @@ __media__ `file`| __Media__: Medial file. Supports image, video and pdf. Recomme
         "page": 12,
         "display_time": 5
     }
+]
+```
+
+#### schedule example
+
+ ```json
+[
+  {
+    "from": 1735693261,
+    "to": 1735729871
+  },
+  {
+    "from": 2000000000,
+    "to": 2147483647
+  }  
 ]
 ```
    
