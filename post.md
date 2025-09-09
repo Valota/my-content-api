@@ -84,4 +84,58 @@ Returns message_id of the created message.
   - [Get basic information [information]](information.md)  
   - [Restore a message [restore]](restore.md)  
   - [Archive a message [archive]](archive.md)  
-  - [Delete a message [delete]](delete.md)  
+  - [Delete a message [delete]](delete.md)
+
+ ## php example
+ ```php
+<?php
+
+$API_SECRET = getenv('VALOTA_SECRET');
+
+$API_KEY = getenv('VALOTA_KEY');
+
+if (empty($API_SECRET) || empty($API_KEY)) {
+    die('could not read key and or secret from environment variables VALOTA_SECRET and VALOTA_KEY' . PHP_EOL);
+}
+
+$title = 'Example title See a drone swarm replant a burnt forest';
+
+$message = 'Centuries ago, a prestigious Islamic library brought Arabic numerals to the world. Though the library long since disappeared, its mathematical revolution changed our world. <strong>The Gatsby</strong> is one of <em>Cape Town</em>\'s most famous sandwiches. But there’s more to the takeaway than simply being a solid hangover fix.';
+
+$file = 'file.jpg';
+
+if (!file_exists($file)) {
+    die('file not found ' . $file . PHP_EOL);
+}
+
+$url = 'https://my-api.valota.live/v1/post';
+
+$ch = curl_init($url);
+$cFile = curl_file_create($file);
+$post = ['title' => $title, 'message' => $message, 'media' => $cFile];
+curl_setopt($ch, CURLOPT_POST, true);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+curl_setopt($ch, CURLOPT_HTTPHEADER,
+            [ 'Content-type: multipart/form-data',
+              'x-api-key: ' . $API_KEY,
+              'x-api-hash: ' . hash('sha256', $API_SECRET . md5_file($file) . $title . $message)
+              ]
+            );
+$result = curl_exec($ch);
+
+if (curl_getinfo($ch, CURLINFO_HTTP_CODE) !== 200) {
+    die('failed: ' . curl_error($ch) . ' ' . $result . PHP_EOL);
+}
+curl_close($ch);
+$obj = json_decode($result);
+
+if (!is_object($obj)) {
+    die('could not parse return value ' . $result . PHP_EOL);
+}
+
+if (!property_exists($obj, 'message_id')) {
+    die('could not find message id from return value ' . $result . PHP_EOL);
+}
+echo 'message id: ' . $obj->message_id . PHP_EOL;
+```
